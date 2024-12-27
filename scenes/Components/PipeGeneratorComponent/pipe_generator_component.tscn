@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgw353moun7y8"]
+
+[ext_resource type="Script" path="res://scenes/Components/PipeGeneratorComponent/pipe_generator_component.gd" id="1_w1avu"]
+
+[node name="PipeGeneratorComponent" type="Node"]
+script = ExtResource("1_w1avu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
