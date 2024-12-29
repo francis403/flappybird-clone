@@ -24,4 +24,5 @@ func _input(event: InputEvent) -> void:
 func on_timer_timeout_signal():
 	press_space_label.show()
 	game_over_label.hide()
+	#self.set_process(true)
 	self.set_process_input(true)

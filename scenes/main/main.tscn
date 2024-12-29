@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnyxvdxmru7qf"]
+[gd_scene load_steps=11 format=3 uid="uid://cnyxvdxmru7qf"]
 
 [ext_resource type="Texture2D" uid="uid://dopjhxbi7rpe5" path="res://assets/background/rocks_1.png" id="1_2d5m1"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_hunad"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bgw353moun7y8" path="res://scenes/Components/PipeGeneratorComponent/pipe_generator_component.tscn" id="1_j1al5"]
 [ext_resource type="Texture2D" uid="uid://ba3sp46jxnedx" path="res://assets/background/sky.png" id="1_prc8s"]
 [ext_resource type="PackedScene" uid="uid://3ud6g6b4kmfk" path="res://scenes/game_objects/Pipes/pipes.tscn" id="2_0i2u1"]
+[ext_resource type="PackedScene" uid="uid://b0ionvqf5x3r4" path="res://scenes/game_objects/parallax_image/parallax_image.tscn" id="4_v8b1m"]
 [ext_resource type="PackedScene" uid="uid://dm1iyxhubqhdt" path="res://scenes/game_objects/Barrier/barrier.tscn" id="4_v8lqv"]
+[ext_resource type="Texture2D" uid="uid://dyhml4uh0r2yh" path="res://assets/background/clouds_2.png" id="6_6c3pe"]
+[ext_resource type="Texture2D" uid="uid://blg2keylrfyy" path="res://assets/background/rocks_2.png" id="6_nmdxc"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_hunad")
@@ -17,10 +20,29 @@ script = ExtResource("1_hunad")
 unique_name_in_owner = true
 pipe_scene = ExtResource("2_0i2u1")
 
+[node name="ParallaxImages" type="Node2D" parent="."]
+
+[node name="ParallaxImage" parent="ParallaxImages" instance=ExtResource("4_v8b1m")]
+texture = ExtResource("1_prc8s")
+
+[node name="ParallaxImage2" parent="ParallaxImages" instance=ExtResource("4_v8b1m")]
+autoscroll = Vector2(-20, 0)
+texture = ExtResource("6_6c3pe")
+
+[node name="ParallaxImage3" parent="ParallaxImages" instance=ExtResource("4_v8b1m")]
+autoscroll = Vector2(-50, 0)
+texture = ExtResource("1_2d5m1")
+
+[node name="ParallaxImage4" parent="ParallaxImages" instance=ExtResource("4_v8b1m")]
+autoscroll = Vector2(-80, 0)
+texture = ExtResource("6_nmdxc")
+
 [node name="SkyBackground" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_prc8s")
 
 [node name="RocksBackground" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_2d5m1")
 
 [node name="Barrier" parent="." instance=ExtResource("4_v8lqv")]
